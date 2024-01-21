@@ -7,7 +7,7 @@ class CustomUser(BaseModel):
     email: EmailStr
     phone: int
 
-    @validator("phone")
+    @field_validator("phone")
     def valdate_phone_positive(cls, value):
         """Phone number should be positive int
 
