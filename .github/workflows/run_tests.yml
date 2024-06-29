@@ -16,7 +16,7 @@ jobs:
         id: changed-py-files
         uses: tj-actions/changed-files@v41
         with:
-          path: ../pydantic-service
+          path: ./pydantic-service
           files: |
             **.py
 
