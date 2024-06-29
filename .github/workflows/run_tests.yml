@@ -22,4 +22,5 @@ jobs:
         shell: bash
         run:
           cd pydantic-service
+          echo $PWD
           python -B -m pytest -v
