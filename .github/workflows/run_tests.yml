@@ -12,13 +12,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      # - name: Get changed py files
-      #   id: changed-py-files
-      #   uses: tj-actions/changed-files@v41
-      #   with:
-      #     path: ../pydantic-service
-      #     files: |
-      #       **.py
+      - name: Get changed py files
+        id: changed-py-files
+        uses: tj-actions/changed-files@v41
+        with:
+          path: ../pydantic-service
+          files: |
+            **.py
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -31,27 +31,7 @@ jobs:
 
       - name: Run tests
         run: |
-          echo "pwd:" $PWD
           ls
-          cd /home/runner/work/pydantic-example/pydantic-example
-          echo "pwd:" $PWD
-          ls
-          cd /home/runner/work/pydantic-example
-          echo "pwd:" $PWD
-          ls
-          cd /home/runner/work
-          echo "pwd:" $PWD
-          ls
-          cd /home/runner
-          echo "pwd:" $PWD
-          ls
-          cd /home
-          echo "pwd:" $PWD
-          ls
-          cd /home/runner/work/pydantic-example/pydantic-example/pydantic-service
+          cd pydantic-service
           echo "pwd:" $PWD
           python -B -m pytest -v
-
-        # with:
-        #   working-directory: ./pydantic-service
-        #   command: python -B -m pytest -v
