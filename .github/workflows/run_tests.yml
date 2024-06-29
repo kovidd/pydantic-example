@@ -21,6 +21,7 @@ jobs:
       - name: Run tests
         shell: bash
         run:
+          set -x
           cd pydantic-service
           echo $PWD
           python -B -m pytest -v
