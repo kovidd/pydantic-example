@@ -23,25 +23,25 @@ jobs:
       - name: List changed files
         shell: bash
         run: |
-          if [[ "${{ steps.changes-files.outputs.any_changed }}" == "true"]]; then
-            echo "Changes found in: ${{ steps.changes-files.outputs.all_changed_files }}"
+          if [[ "${{ steps.changed-py-files.outputs.any_changed }}" == "true" ]]; then
+            echo "Changes found in: ${{ steps.changed-py-files.outputs.all_changed_files }}"
           else
             echo "No files to check, will skip further steps"
           fi
 
       - name: Setup Python
-        if: ${{ steps.changed-files.outputs.any_changed }}
+        if: ${{ steps.changed-py-files.outputs.any_changed }}
         uses: actions/setup-python@v4
         with:
           python-version: 3.11.6
           cache: pip
 
       - name: Install requirements
-        if: ${{ steps.changed-files.outputs.any_changed }}
+        if: ${{ steps.changed-py-files.outputs.any_changed }}
         run: pip install -r requirements.txt
 
       - name: Run tests
-        if: ${{ steps.changed-files.outputs.any_changed }}
+        if: ${{ steps.changed-py-files.outputs.any_changed }}
         run: |
           ls
           cd pydantic-service
