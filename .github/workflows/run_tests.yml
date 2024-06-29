@@ -31,7 +31,7 @@ jobs:
 
       - name: Run tests
         run: |
-          export PYTHONPATH=$PYTHONPATH:./pydantic-service
+          cd ../../pydantic-service
           echo $PWD
           python -B -m pytest -v
 
