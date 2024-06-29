@@ -42,7 +42,12 @@ jobs:
           cd /home/runner/work
           echo "pwd:" $PWD
           ls
+          cd /home/runner
           echo "pwd:" $PWD
+          ls
+          cd /home
+          echo "pwd:" $PWD
+          ls
           python -B -m pytest -v
 
         # with:
