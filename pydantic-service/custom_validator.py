@@ -12,7 +12,7 @@ class CustomUser(BaseModel):
         """Phone number should be positive int
 
         Args:
-            cls, values
+            cls, value
 
         Raises:
             ValueError: Phone number must be positive
