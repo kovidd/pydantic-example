@@ -19,5 +19,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run tests
-        working-directory: pydantic-service
-        run: python -B -m pytest -v
+        run: cd pydantic-service && python -B -m pytest -v
