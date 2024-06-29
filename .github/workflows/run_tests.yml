@@ -7,7 +7,18 @@ jobs:
   pydantic-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Get changed py files
+        id: changed-py-files
+        uses: tj-actions/changed-files@v41
+        with:
+          path: ./pydantic-service
+          files: |
+            **.py
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -20,8 +31,11 @@ jobs:
 
       - name: Run tests
         shell: bash
-        run: |
-          set -x
-          cd pydantic-service
-          echo $PWD
-          python -B -m pytest -v
+        with:
+          working-directory: ./pydantic-service
+          command: python -B -m pytest -v
+        # run: |
+        #   set -x
+        #   cd pydantic-service
+        #   echo $PWD
+        #   python -B -m pytest -v
