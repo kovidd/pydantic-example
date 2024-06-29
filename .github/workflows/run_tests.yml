@@ -48,6 +48,8 @@ jobs:
           cd /home
           echo "pwd:" $PWD
           ls
+          cd /home/runner/work/pydantic-example/pydantic-example/pydantic-service
+          echo "pwd:" $PWD
           python -B -m pytest -v
 
         # with:
