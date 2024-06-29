@@ -31,11 +31,13 @@ jobs:
 
       - name: Run tests
         shell: bash
-        with:
-          working-directory: ./pydantic-service
-          command: python -B -m pytest -v
-        # run: |
-        #   set -x
-        #   cd pydantic-service
-        #   echo $PWD
-        #   python -B -m pytest -v
+        run: |
+          set -x
+          echo $PWD
+          cd pydantic-service
+          echo $PWD
+          python -B -m pytest -v
+
+        # with:
+        #   working-directory: ./pydantic-service
+        #   command: python -B -m pytest -v
