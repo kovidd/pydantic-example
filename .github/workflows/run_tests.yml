@@ -20,5 +20,6 @@ jobs:
 
       - name: Run tests
         shell: bash
-        run: python -B -m pytest -v
-        working-directory: pydantic-service
+        run:
+          cd pydantic-service
+          python -B -m pytest -v
