@@ -20,7 +20,7 @@ jobs:
 
       - name: Run tests
         shell: bash
-        run:
+        run: |
           set -x
           cd pydantic-service
           echo $PWD
