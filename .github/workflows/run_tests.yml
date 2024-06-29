@@ -32,8 +32,10 @@ jobs:
       - name: Run tests
         run: |
           echo "pwd:" $PWD
-          cd ../../pydantic-service
-          echo $PWD
+          ls
+          cd /home/runner/work/pydantic-example
+          ls
+          echo "pwd:" $PWD
           python -B -m pytest -v
 
         # with:
