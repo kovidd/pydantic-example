@@ -61,3 +61,7 @@ Remove specific setting
 ## Remove all custom settings
 
     rm ~/.gitconfig
+
+## git PAT
+
+    git remote set-url origin https://username:token@github.com/username/repository.git
