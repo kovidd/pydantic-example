@@ -20,9 +20,6 @@ jobs:
 
       - name: Run tests
         shell: bash
-        with:
-          working-directory: ./pydantic-service
-          run: |
-            echo $PWD
-            ls
-            python -B -m pytest -v
+        run: |
+          cd pydantic-service
+          python -B -m pytest -v
