@@ -39,6 +39,7 @@ jobs:
       - name: Install requirements
         if: ${{ steps.changed-py-files.outputs.any_changed == 'true' }}
         run: |
+          pip install --upgrade pip
           cd pydantic-service
           pip install poetry==1.6.1
           poetry --version && poetry env info && poetry config --list
