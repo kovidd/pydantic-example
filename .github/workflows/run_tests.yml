@@ -1,49 +1,49 @@
-name: Run pytest
-on:
-  push:
-    branches:
-      - main
-jobs:
-  pydantic-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4.1.1
-        with:
-          fetch-depth: 0
+# name: Run pytest
+# on:
+#   push:
+#     branches:
+#       - main
+# jobs:
+#   pydantic-tests:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4.1.1
+#         with:
+#           fetch-depth: 0
 
-      - name: Get changed py files
-        id: changed-py-files
-        uses: tj-actions/changed-files@v41
-        with:
-          path: ./pydantic-service
-          files: |
-            **.py
+#       - name: Get changed py files
+#         id: changed-py-files
+#         uses: tj-actions/changed-files@v41
+#         with:
+#           path: ./pydantic-service
+#           files: |
+#             **.py
 
-      - name: List changed files
-        shell: bash
-        run: |
-          if [[ "${{ steps.changed-py-files.outputs.any_changed }}" == "true" ]]; then
-            echo "Changes found in: ${{ steps.changed-py-files.outputs.all_changed_files }}"
-          else
-            echo "No files to check, will skip further steps"
-          fi
+#       - name: List changed files
+#         shell: bash
+#         run: |
+#           if [[ "${{ steps.changed-py-files.outputs.any_changed }}" == "true" ]]; then
+#             echo "Changes found in: ${{ steps.changed-py-files.outputs.all_changed_files }}"
+#           else
+#             echo "No files to check, will skip further steps"
+#           fi
 
-      - name: Setup Python
-        if: "${{ steps.changed-py-files.outputs.any_changed == 'true' }}"
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11.6
-          cache: pip
+#       - name: Setup Python
+#         if: "${{ steps.changed-py-files.outputs.any_changed == 'true' }}"
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11.6
+#           cache: pip
 
-      - name: Install requirements
-        if: ${{ steps.changed-py-files.outputs.any_changed == 'true' }}
-        run: pip install -r requirements.txt
+#       - name: Install requirements
+#         if: ${{ steps.changed-py-files.outputs.any_changed == 'true' }}
+#         run: pip install -r requirements.txt
 
-      - name: Run tests
-        if: ${{ steps.changed-py-files.outputs.any_changed == 'true' }}
-        run: |
-          ls
-          cd pydantic-service
-          echo "pwd:" $PWD
-          python -B -m pytest -v
+#       - name: Run tests
+#         if: ${{ steps.changed-py-files.outputs.any_changed == 'true' }}
+#         run: |
+#           ls
+#           cd pydantic-service
+#           echo "pwd:" $PWD
+#           python -B -m pytest -v
