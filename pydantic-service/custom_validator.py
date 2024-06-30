@@ -54,4 +54,4 @@ if __name__ == "__main__":
     user3_json_obj = user3.dict()
     ic(user3_json_obj)
 
-    # dataclasses can do the above using: as.dict()
+    # dataclasses can do the above using -> as.dict()
