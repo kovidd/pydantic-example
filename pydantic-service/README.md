@@ -42,6 +42,8 @@ For an existing project
 To add new dependencies
 
     poetry add pytest
+    poetry add icecream
+    poetry add 'pydantic[email]'
 
 To install all dependencies from lock file
 
