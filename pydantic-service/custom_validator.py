@@ -46,7 +46,7 @@ if __name__ == "__main__":
     ic(user2_json_obj)
 
     # CONVERT JSON STR TO JSON
-    # pydantic can convert json string to json objects
+    # pydantic can convert json string to json object
     data_str = '{"name":"whichever", "email":"which@evs.com", "phone":5421}'
     user3 = CustomUser.parse_raw(data_str)
     ic("Make new user")
