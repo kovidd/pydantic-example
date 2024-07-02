@@ -49,9 +49,17 @@ To install all dependencies from lock file
 
     poetry install
 
+To see all packages
+
+    poetry show --latest
+
+![alt text](image.png)
+
 To update dependencies
 
     poetry lock -vvv
+
+![alt text](image-1.png)
 
 ## poetry config
 Listing the current configuration
